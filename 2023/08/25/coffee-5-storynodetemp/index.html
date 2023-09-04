@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="/./style/main.css">
 	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-	<title>咖啡剧场 - 2.故事状态以及结构</title>
+	<title>咖啡剧场 - 5.节点模版</title>
   
   
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -32,7 +32,7 @@
     
   
   <h1 class="title">
-    咖啡剧场 - 2.故事状态以及结构
+    咖啡剧场 - 5.节点模版
   </h1>
   
 
@@ -40,11 +40,11 @@
     <ul class="article-info">
       <li>
         发布
-        <time datetime="2023-08-21T13:09:50.000Z" itemprop="datePublished">2023-08-21</time>
+        <time datetime="2023-08-25T14:47:25.000Z" itemprop="datePublished">2023-08-25</time>
       </li>
       <li>
         
-    更新 <time datetime="2023-08-24T12:48:34.840Z" itemprop="dateUpdated">2023-08-24</time>
+    更新 <time datetime="2023-08-25T15:03:00.906Z" itemprop="dateUpdated">2023-08-25</time>
 
       </li>
       <li id="busuanzi_container_page_pv">
@@ -56,48 +56,7 @@
     <div class="article">
       <div class="content">
         
-        <p>故事存在两种状态，既：</p>
-<ul>
-<li><strong>编辑状态</strong></li>
-<li><strong>运行状态</strong></li>
-</ul>
-<p><strong>编辑状态</strong>：<br>点击”编辑”后，进入故事编辑器。<br><img src="/images/19.jpg"></p>
-<ol>
-<li>节点模版区域：在编辑过程如果该节点类型为多个节点都需要时候，可以将其保存为模版，然后可以从模块区域中直接拖拽创建</li>
-<li>故事编辑区域：编辑故事主要区域，将模版区域内模版拖拽到该区域后可自动创建对应的节点</li>
-<li>属性编辑区域：分为基础和节点两个页签，基础为全局设置，节点页签只有选中节点后才可展示选中节点的属性</li>
-<li>快捷设置区域：可快速开关编辑功能<ul>
-<li>移动所有子节点：开启后，移动父节点的同时会它所有的子节点以及子节点的子节点</li>
-<li>自动打开行为编辑窗：开启后，在行为列表中(全局、节点、状态)选中行为会自动打开行为编辑窗口</li>
-</ul>
-</li>
-<li>按钮操作区域：提供以下功能：<ul>
-<li>退出：退出编辑器，需要手动保存，不保存则会自动丢弃相关修改</li>
-<li>试玩：进入游戏状态，试玩前需要手动保存游戏，否则修改无法生效</li>
-<li>保存：保存当前游戏</li>
-</ul>
-</li>
-</ol>
-<p><em><strong>在编辑器中，所有的节点都会显示。</strong></em></p>
-<p><strong>运行状态</strong></p>
-<p>点击”试玩”按钮即可试玩当前故事，进入运行时状态,体验游戏流程。<em><strong>该状态与玩家体验的游戏流程完全一致！！！</strong></em><br><img src="/images/20.jpg"></p>
-<ol>
-<li>道具框：玩家可以将离散的(父节点关联为”无”)节点拖拽到此处进行过管理(在”基础”设置，可设置道具框是否显示)</li>
-<li>线索框：游戏过程中不同的节点可以设置掉落线索，掉落后的线索会此处显示，方便玩家查阅(在”基础”设置，可设置线索框是否显示)</li>
-<li>游戏区域：游戏进行的主要区域</li>
-<li>标题与时间：显示游戏名称，如果设置了时间则会显示时间</li>
-<li>功能操作区：提供以下功能：<ul>
-<li>重玩：重新开始试玩游戏</li>
-<li>退出：退出试玩</li>
-</ul>
-</li>
-</ol>
-<p>那么一个故事是按什么样的结构存储的呢？<br>看这里：<br><img src="/images/6.jpg"></p>
-<p>整个故事分为两大块：</p>
-<ul>
-<li><strong>全局设置</strong>(基础)：设置整个故事的公共属性或者数据</li>
-<li><strong>节点</strong>：整个故事都是由节点构成，每个节点都有自己属性和行为</li>
-</ul>
+        <p>节点模版：用于存储常用的节点设置，在编辑中可快速拖拽进行编辑！！<br>节点模版的入口在主界面：<br><img src="/images/23.jpg"><br>点击”<strong>模版</strong>“按钮会打开模版编辑页面：<br><img src="/images/24.jpg"><br>点击”<strong>新建模版</strong>“按钮则会新建一个空的模版节点，选中节点后，在右侧”属性面板”中编辑节点数据<br>特别需要，在模版编辑中，节点片段相关事件是无法进行编辑的，因为在此那些节点都尚未创建。<br>具体的属性可在：<a href="/2023/08/23/coffee-4-storynodesetting/">咖啡剧场 - 4.节点设置查看</a></p>
 
       </div>
         <div class="support-author">

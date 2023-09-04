@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="/./style/main.css">
 	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-	<title>咖啡剧场 - 2.故事状态以及结构</title>
+	<title>咖啡剧场 - 4.节点设置</title>
   
   
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -32,7 +32,7 @@
     
   
   <h1 class="title">
-    咖啡剧场 - 2.故事状态以及结构
+    咖啡剧场 - 4.节点设置
   </h1>
   
 
@@ -40,11 +40,11 @@
     <ul class="article-info">
       <li>
         发布
-        <time datetime="2023-08-21T13:09:50.000Z" itemprop="datePublished">2023-08-21</time>
+        <time datetime="2023-08-23T13:32:36.000Z" itemprop="datePublished">2023-08-23</time>
       </li>
       <li>
         
-    更新 <time datetime="2023-08-24T12:48:34.840Z" itemprop="dateUpdated">2023-08-24</time>
+    更新 <time datetime="2023-08-24T14:02:10.395Z" itemprop="dateUpdated">2023-08-24</time>
 
       </li>
       <li id="busuanzi_container_page_pv">
@@ -56,47 +56,59 @@
     <div class="article">
       <div class="content">
         
-        <p>故事存在两种状态，既：</p>
+        <p>在编辑器中，选中节点后可以在”属性”面板中选择”节点”页签：<br><img src="/images/21.jpg"><br><img src="/images/22.jpg"></p>
 <ul>
-<li><strong>编辑状态</strong></li>
-<li><strong>运行状态</strong></li>
-</ul>
-<p><strong>编辑状态</strong>：<br>点击”编辑”后，进入故事编辑器。<br><img src="/images/19.jpg"></p>
-<ol>
-<li>节点模版区域：在编辑过程如果该节点类型为多个节点都需要时候，可以将其保存为模版，然后可以从模块区域中直接拖拽创建</li>
-<li>故事编辑区域：编辑故事主要区域，将模版区域内模版拖拽到该区域后可自动创建对应的节点</li>
-<li>属性编辑区域：分为基础和节点两个页签，基础为全局设置，节点页签只有选中节点后才可展示选中节点的属性</li>
-<li>快捷设置区域：可快速开关编辑功能<ul>
-<li>移动所有子节点：开启后，移动父节点的同时会它所有的子节点以及子节点的子节点</li>
-<li>自动打开行为编辑窗：开启后，在行为列表中(全局、节点、状态)选中行为会自动打开行为编辑窗口</li>
-</ul>
-</li>
-<li>按钮操作区域：提供以下功能：<ul>
-<li>退出：退出编辑器，需要手动保存，不保存则会自动丢弃相关修改</li>
-<li>试玩：进入游戏状态，试玩前需要手动保存游戏，否则修改无法生效</li>
-<li>保存：保存当前游戏</li>
+<li><strong>存储为模版…</strong>:可将当前节点存储为模版</li>
+<li><strong>名称</strong>：节点名称，可修改</li>
+<li><strong>描述</strong>：节点描述，仅为备注使用</li>
+<li><strong>颜色</strong>：调整节点的颜色</li>
+<li><strong>可使用次数</strong>：节点总共的使用(将此节点拖拽到别的节点上并触发)次数，每次使用后次数-1，当为0时会推送”当节点无使用次数”事件</li>
+<li><strong>移动</strong>：节点是否可以被拖拽</li>
+<li><strong>坐标</strong>：显示当前节点位置，点击”重置”会将节点坐标重置为”0,0”</li>
+<li><strong>默认状态</strong>：节点初始显示状态，故事中必须有至少一个节点默认为”显示”状态</li>
+<li><strong>字体</strong>：字体相关设置<ul>
+<li><strong>字体大小</strong>：设置字体尺寸</li>
+<li><strong>字体颜色</strong>：设置字体颜色</li>
+<li><strong>方向</strong>：文字显示的两种方向，分别为”水平”、”垂直”。默认为”水平”方向。</li>
 </ul>
 </li>
-</ol>
-<p><em><strong>在编辑器中，所有的节点都会显示。</strong></em></p>
-<p><strong>运行状态</strong></p>
-<p>点击”试玩”按钮即可试玩当前故事，进入运行时状态,体验游戏流程。<em><strong>该状态与玩家体验的游戏流程完全一致！！！</strong></em><br><img src="/images/20.jpg"></p>
-<ol>
-<li>道具框：玩家可以将离散的(父节点关联为”无”)节点拖拽到此处进行过管理(在”基础”设置，可设置道具框是否显示)</li>
-<li>线索框：游戏过程中不同的节点可以设置掉落线索，掉落后的线索会此处显示，方便玩家查阅(在”基础”设置，可设置线索框是否显示)</li>
-<li>游戏区域：游戏进行的主要区域</li>
-<li>标题与时间：显示游戏名称，如果设置了时间则会显示时间</li>
-<li>功能操作区：提供以下功能：<ul>
-<li>重玩：重新开始试玩游戏</li>
-<li>退出：退出试玩</li>
+<li><strong>父节点</strong>：节点父节点数据<ul>
+<li><strong>父节点ID</strong>：点击”选…”可以打开节点列表选择该节点父节点</li>
+<li><strong>父节点关联</strong>：与父节点关联有三种关系：无关联、弱链接、强链接<ul>
+<li><strong>无关联</strong>：表示在游戏过程中该节点与任何节点无链接</li>
+<li><strong>弱链接</strong>：表示在游戏过程中可修改父节点</li>
+<li><strong>强链接</strong>：表示在游戏过程中不可以修改父节点</li>
 </ul>
 </li>
-</ol>
-<p>那么一个故事是按什么样的结构存储的呢？<br>看这里：<br><img src="/images/6.jpg"></p>
-<p>整个故事分为两大块：</p>
+</ul>
+</li>
+<li><strong>子节点</strong>：显示该节点下所有的子节点</li>
+<li><strong>行为</strong>：节点行为列表，点击”新建”可创建行为执行器</li>
+<li><strong>状态</strong>：节点状态列表，点击”新建”可添加新的状态，如果存在多个状态，则会显示”激活”按钮，点击后可将其设置为默认状态<ul>
+<li><strong>状态名称</strong>：可选择”使用节点名称”和”使用新名称”，选择”使用新名称”则会显示名称输入框，输入状态名称</li>
+<li><strong>状态描述</strong>：对状态描述，仅编辑器时显示</li>
+<li><strong>行为</strong>：状态行为列表，仅在当前状态时，该行为列表中行为能有可能被触发。点击”新建”可创建行为执行器。</li>
+</ul>
+</li>
+</ul>
+<p>颜色列表：</p>
 <ul>
-<li><strong>全局设置</strong>(基础)：设置整个故事的公共属性或者数据</li>
-<li><strong>节点</strong>：整个故事都是由节点构成，每个节点都有自己属性和行为</li>
+<li><font color="#414141"><strong>暗灰</strong></font></li>
+<li><font color="#414141"><strong>白</strong></font></li>
+<li><font color="#000000"><strong>黑</strong></font></li>
+<li><font color="#808080"><strong>灰</strong></font></li>
+<li><font color="#ff0000"><strong>红</strong></font></li>
+<li><font color="#ff8000"><strong>橙</strong></font></li>
+<li><font color="#ffff00"><strong>黄</strong></font></li>
+<li><font color="#80ff00"><strong>黄绿</strong></font></li>
+<li><font color="#00ff00"><strong>绿</strong></font></li>
+<li><font color="#00ff80"><strong>青绿</strong></font></li>
+<li><font color="#00ffff"><strong>青</strong></font></li>
+<li><font color="#0080ff"><strong>靛</strong></font></li>
+<li><font color="#0000ff"><strong>蓝</strong></font></li>
+<li><font color="#8000ff"><strong>紫</strong></font></li>
+<li><font color="#ff00ff"><strong>品红</strong></font></li>
+<li><font color="#ff0080"><strong>紫红</strong></font></li>
 </ul>
 
       </div>
