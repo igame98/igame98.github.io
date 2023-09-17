@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="iGame98,咖啡剧场,文字游戏,解密,密室逃脱,故事" />
+  <meta name="description" content="iGame98,咖啡剧场,文字游戏,解密,密室逃脱,故事" />
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+  <link rel="dns-prefetch" href="https://at.alicdn.com">
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="/./style/main.css">
+	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<title>诡雅异俗 - 附加.故事中的行为</title>
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <canvas id="pattern-placeholder" height="230"></canvas>
+<div class="navbar-header">
+  <a class="blog-title" href="/">爱游戏</a>
+  <a class="face-img" href="/">
+    <img src="/img/iGame_icon.jpg">
+  </a>
+</div>
+<main>
+  <div class="article-title">
+    
+  
+  <h1 class="title">
+    诡雅异俗 - 附加.故事中的行为
+  </h1>
+  
+
+
+    <ul class="article-info">
+      <li>
+        发布
+        <time datetime="2023-08-25T14:11:34.000Z" itemprop="datePublished">2023-08-25</time>
+      </li>
+      <li>
+        
+    更新 <time datetime="2023-09-17T03:21:11.689Z" itemprop="dateUpdated">2023-09-17</time>
+
+      </li>
+      <li id="busuanzi_container_page_pv">
+        阅读 <span id="busuanzi_value_page_pv"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="article">
+      <div class="content">
+        
+        <p>在游戏中，行为分为两大类：<br><strong>条件行为</strong>：支持逻辑判断的行为<br><strong>执行行为</strong>：具体的执行逻辑</p>
+<p>除了分类，根据作用域可划分为<br><strong>全局</strong>：在任何地方都可以使用<br><strong>节点</strong>：仅在节点(节点行为|状态行为)中可使用，不能在全局行为中使用<br><font color="#ff0000">所以，标记为全局作用的行为在节点中是可以使用的，但是在标记节点的行为在全局行为中是不能使用的</font></p>
+<p><strong>条件行为包括：<br>1000.判断节点<br>1001.检测子节点及状态<br>1002.检测子节点列表<br>1500.自定义事件判断</strong></p>
+<p><strong>1000.判断节点</strong>：(节点)<br>判断指定节点以及节点的状态：<br><img src="/images/81.jpg"></p>
+<ul>
+<li>目标：节点对象，可选择<strong>自己</strong>或指定<strong>节点</strong>ID</li>
+<li>状态：判断目标的状态，默认为”无”，表示不检测状态</li>
+</ul>
+<p><strong>1001.检测子节点及状态</strong>：(节点)<br>检测子节点中是否存在指定节点以及节点的状态：<br><img src="/images/82.jpg"></p>
+<ul>
+<li>节点：目标节点</li>
+<li>状态：目标节点状态，默认为”无”，表示不检测状态</li>
+</ul>
+<p><strong>1002.检测子节点及状态</strong>：(节点)<br>检测子节点列表中是否存在指定的节点列表：<br><img src="/images/83.jpg"><br><strong>检测类型</strong>：提供以下选项：<br>&emsp;&emsp;必须等于：子节点列表必须与指定列表一致<br>&emsp;&emsp;必须包含：子节点列表必须包含指定列表<br><strong>检测顺序</strong>：在检测时，是否需要进行顺序检测(子节点顺序按照节点连接顺序排列)<br><strong>容错数量</strong>：当检测类型为”必须包含”时，此选项显示,可设置除指定列表外可额外存在节点数量(主要是避免玩家使用穷举法暴力破解的行为)<br><strong>节点</strong>：待检测的子节点列表,如果勾选”检测顺序”，则此会按照此节点列表顺序与子节点列表顺序进行匹配</p>
+<p><strong>1500.自定义事件判断</strong>：(全局)<br>自定时间通知判断，一般与”当收到自定义事件”事件配合使用：<br><img src="/images/84.jpg"><br><strong>自定义事件</strong>：选择已添加的<strong>自定义事件</strong>(<a href="/2023/09/12/coffee-1005-customEvent/">自定义事件</a>)</p>
+<p><strong>执行行为：<br>2000.显示提示<br>2001.广播自定义消息<br>2003.播放音乐<br>2004.显示节点<br>2005.隐藏节点<br>2006.显示黑屏文本<br>2007.掉落线索<br>2101.结束故事<br>2500.切换状态<br>2501.切换父节点及关系<br>2502.播放动画<br>2503.数字密码框</strong></p>
+<p>目前在故事中支持以下行为：<br><strong>2000.显示提示</strong>：全局(<strong>支持标签</strong>)<br>通过指定的方式显示自定义的提示信息。<br>显示方式有：</p>
+<ul>
+<li>底部提示：可用来显示<strong>中等长度且无排版格式</strong>的提示信息，因为默认为居中对齐，所以如果有排版格式的话会非常奇怪</li>
+<li>屏幕中间飘字：可用来显示<strong>较短且无格式</strong>的通知信息</li>
+<li>特定的文本框：可用来显示<strong>特别长或有排版</strong>的提示信息，例如日记等提示内容<br><img src="/images/7.jpg"></li>
+</ul>
+<p><strong>2001.广播自定义消息</strong>：全局<br>将自定的消息广播出去，其他节点可监听该消息，收到消息后可执行其他逻辑。<br>需要先在<strong>“自定义消息”</strong>列表中后，在该行为可现在要广播的消息。<br>默认会添加两个自定义消息：<br>开始故事：在基础设置中，如果未勾选<strong>自动开始</strong>，则需要主动派发该消息才能正常开始游戏。<br>退出故事：在基础设置中，如果未勾选<strong>自定结束</strong>，则需要主动派发该消息才能正常退出游戏。<br>节点</p>
+<p><strong>2003.播放音乐</strong>：全局<br>播放音乐，通选择音乐自动播放<strong>背景音乐</strong>或<strong>音效</strong>:<br><img src="/images/85.jpg"></p>
+<p><strong>2004.显示节点</strong>：全局<br>通过指定间隔时间，根据指定的节点集合<strong>依次</strong>显示节点。<br>最通常的使用方式就是：点击节点显示所有子节点，或者使用某个节点后显示另外一个节点。<br><img src="/images/9.jpg"></p>
+<ul>
+<li>显示间隔：如果有多个节点，则显示一个点后等待该时间才会显示下一个节点</li>
+<li>节点：节点列表，点击”选…”按钮，会打开节点选择界面，可依次点选想要显示的节点或选择”所有节点”(这里的所有节点指当前节点子节点，在全局行为中该选项不生效)<br>显示节点会<strong>根据节点列表依次显示</strong>，如果想要调整显示顺序可以在选择节点时按显示顺序依次选择，或在节点列表中点击”上””下”来调整顺序</li>
+</ul>
+<p><strong>2005.隐藏节点</strong>：全局<br>隐藏指定的节点或节点集合<br><img src="/images/10.jpg"></p>
+<ul>
+<li>自己：隐藏自己</li>
+<li>目标：隐藏触发当前节点的节点</li>
+<li>节点：隐藏指定的节点集合</li>
+</ul>
+<p><strong>2006.显示黑屏文本</strong>：全局<br>显示全屏的黑屏文本，支持排版，可用于故事背景介绍等效果<br><img src="/images/11.jpg"></p>
+<ul>
+<li>水平对齐：水平对齐方式，主要有左对齐、居中对齐、右对齐三种选项</li>
+<li>内容：显示的内容</li>
+<li>自定义事件：结束显示可广播自定义的消息</li>
+</ul>
+<p><strong>2007.掉落线索</strong>：全局<br>掉落指定线索，并填加到线索框中<br><img src="/images/12.jpg"></p>
+<ul>
+<li>点击”新…”按钮可添加新线索</li>
+</ul>
+<p><strong>2101.结束故事</strong>：全局<br>通知系统故事已经结束，该事件在每个故事中至少存在一个，否则无法正常结束故事！<br><img src="/images/13.jpg"><br>*该事件没有可编辑选项</p>
+<p><strong>2500.切换状态</strong>：节点<br>当节点有多个状态时，可通过该行为切换到指定状态。<br><img src="/images/14.jpg"></p>
+<p><strong>2501.切换父节点</strong>：节点<br>根据选择将目标节点切换到指定父节点下<br><img src="/images/15.jpg"></p>
+<ul>
+<li>子节点：操作的子节点</li>
+<li>父节点：挂靠的父节点<br>子节点和父节点都有三个选项：<ul>
+<li>自己：当前节点</li>
+<li>目标：触发该节点的目标节点</li>
+<li>节点：指定的节点</li>
+<li>父节点：当节点的父节点</li>
+</ul>
+</li>
+<li>父节点关系：故事中，节点与节点关系有三种<ul>
+<li>无关联：没有任何关系，只是表现层级关系</li>
+<li>弱关联：表示两个物品之间的层级可以发生变化，某一节点依赖另外一节点的依赖关系等，用虚线表示。例如：电水壶分身子和托，两个结合后便可通电使用</li>
+<li>强关联：表示两个物品之间的层级关系不允许发生变化，用实线表示。例如：桌子与桌子的抽屉之间就是强关系，因为我们不能将桌子抽屉从桌子上拿走</li>
+</ul>
+</li>
+</ul>
+<p><strong>2502.播放动画</strong>：节点<br>(待补充)</p>
+<p><strong>2503.数字密码框</strong>：全局<br>弹出密码解锁框！！<br><img src="/images/16.jpg"></p>
+<ul>
+<li>密码：解锁密码，密码必须在密码库中存在，否则永远无法解锁</li>
+<li>密码库：指明文，玩家可以从该库中选择密码进行解锁。点击预设可选择内置的预设密码库：<ul>
+<li>数字：0|1|2|3|4|5|6|7|8|9</li>
+<li>箭头：←|↑|→|↓|↖|↗|↘|↙</li>
+<li>罗马数字：Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ|Ⅷ|Ⅸ|Ⅹ</li>
+<li>英文字母：A|B|C|D|E|F|G|H|I|L|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z</li>
+</ul>
+</li>
+<li>提示：用于显示密码提示或者其他描述来辅助玩家解锁密码<br><strong>作者也可以自定义密码和密码库，密码和密码库均支持以“|”作为分割符进行分割，如果没有”|”,则认为每个字符就是一个密码位。最多支持6个密码位，每个密码位最多支持2位字符。例如：<br>密码：天情<br>密码库：天若有情天亦老<br>等于<br>密码：天|情<br>密码库：天|若|有|情|天|亦|老<br>以上设置表示有两个密码位，一个是天，一个是情。玩家需要从“天若有情天亦老”中选择字符组成“天情”才能正常解锁！<br>双字符密码格式：<br>密码：测试|游戏<br>密码库：测试|游戏|完美</strong></li>
+</ul>
+
+      </div>
+        <div class="support-author">
+          <p>感谢您的阅读🙏。 
+		  <!--
+          <a href="https://888.com/index.html" target="_blank">关于转载请看这里</a>
+            <a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>
+          </p>
+		  -->
+        </div>
+        <!--
+            <div class="like ">
+              <div class="like-button">
+                <a id="like-note" href="">
+                  <i class="icon-heart"></i>喜欢
+                </a>
+              </div>
+              <span id="likes-count">256</span>
+            </div>
+        -->
+		<!--
+        <div class="otherLink">
+          <div class="previous">
+          </div>
+          <div class="next">
+          </div>
+        </div>
+		
+        <div class="comments" id="comments">
+          
+
+        </div>
+		-->
+      </div>
+    </div>
+   </div>
+</main>
+<div class="footer">
+  <div class="info">
+    <p>
+    <a target="_blank" rel="noopener" href="https://hexo.io"> Hexo </a> 强力驱动 |
+      <a target="_blank" rel="noopener" href="https://github.com/Youthink/hexo-themes-yearn"> Yearn </a>
+      主题
+    </p>
+    <p>&copy;2013-2030 iYou 咖啡剧场 京ICP备xxxxxx号</p>
+  </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>//console
+  var consoleConfig = '-&#39;&#39;'.split(',');
+  var canConsole = false;
+  var consoleInfo = (function(consoleConfig) {
+  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
+    return;
+  }
+  var consoleColor = '#6190e8';
+  var _console;
+  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
+  var textStyle = 'color: ' + consoleColor + ';';
+
+  consoleConfig.map(o => {
+    var num = (o.match(/%c/g) || []).length;
+    if(/^http(s)?:\/\//.test(o)) {
+      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
+      return;
+    }
+    if (num > 0) {
+      var logArguments = [];
+      for (var i = 0; i < num; i++) {
+        if (i % 2 === 0) {
+          logArguments.push(backgroundTextStyle);
+        } else {
+          logArguments.push(textStyle);
+        }
+      }
+      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
+      return;
+    }
+    console.log('%c' + o, textStyle);
+  });
+}(consoleConfig));</script><script type="text/javascript" src="/./js/main.js"></script>
+
+  <script src="//at.alicdn.com/t/font_159214_mvtxvg9me9.js"></script>
+</body>
+</html>
